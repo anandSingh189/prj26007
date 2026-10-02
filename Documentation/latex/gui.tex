@@ -1,0 +1,400 @@
+\hypertarget{gui_gui_main}{}\doxysection{Main Interface}\label{gui_gui_main}
+\index{User Interface@{User Interface}}
+
+\label{gui_gui_main_top}%
+\Hypertarget{gui_gui_main_top}%
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{gui_main_manual-2.png}
+\doxyfigcaption{Main User Interface}
+\end{DoxyImage}
+
+
+
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{gui_gui_main_nav}{Navigation Buttons}} 
+\item \mbox{\hyperlink{gui_gui_main_home}{Station Homing}} 
+\item \mbox{\hyperlink{gui_gui_main_autoo}{Mode and Cycle Controls}} 
+\item \mbox{\hyperlink{gui_gui_main_result}{Test Results}} 
+\item \mbox{\hyperlink{gui_gui_main_modes}{Modes and Bypasses}} 
+\item \mbox{\hyperlink{gui_gui_main_conv}{Index Conveyor and Robot Interlock}} 
+\end{DoxyEnumerate}
+
+The image shows all elements. The Robot Interlock button is only shown when an \mbox{\hyperlink{gui_gui_main_user}{Administrator}} is logged in.\hypertarget{gui_gui_main_nav}{}\doxysubsection{1. Navigation Buttons}\label{gui_gui_main_nav}
+\index{Navigation Buttons@{Navigation Buttons}} These buttons are used to navigate between the different screens.
+
+
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{gui_gui_main}{Main Interface}} 
+\item \mbox{\hyperlink{gui_gui_IO_safety}{Safety IO}} 
+\item \mbox{\hyperlink{gui_gui_IO_i}{Regular IO}} 
+\item \mbox{\hyperlink{gui_gui_manual}{Manual Operation}} 
+\item \mbox{\hyperlink{gui_gui_seqinfo}{Sequence Info}} 
+\item \mbox{\hyperlink{gui_gui_alarms}{Alarms}} 
+\item \mbox{\hyperlink{gui_gui_config}{Station Config}} 
+\end{DoxyEnumerate}
+
+\mbox{\hyperlink{gui_gui_main_top}{To Top}}\hypertarget{gui_gui_main_home}{}\doxysubsection{2. Station Homing}\label{gui_gui_main_home}
+\index{Station Homing@{Station Homing}} \index{RFID Fixture Check@{RFID Fixture Check}}
+
+The station needs to be in the homed state prior to entering Auto Mode. The homing sequence is started by pressing the {\bfseries{Home}} button while in Manual Mode. The homing is considered complete when all indicators are green. The homing sequence has a hard time out of 2 minutes.
+
+{\bfseries{RFID Fixture Check}} Once both nest cylinders are in the home position, each nest fixture is at its RFID head. The homing sequence then scans the fixture RFID tag of Nest 1 followed by Nest 2 and compares each to the expected fixture value for the current module type (Short or Long) received from the previous station.
+\begin{DoxyItemize}
+\item If the tag matches, homing continues to the next step.
+\item If the tag does not match, homing stops and a \mbox{\hyperlink{faults}{RFID mismatch fault}} is raised for that nest. Install the correct fixture, or write the correct value to the tag through the \mbox{\hyperlink{gui_gui_manual_rfid}{RFID Scanner}} controls, then reset the fault and re-\/run homing.
+\end{DoxyItemize}
+
+The RFID fixture check only runs as part of the homing sequence. The fixture check is cleared, and the station must be homed again before entering Auto Mode, when\+:
+\begin{DoxyItemize}
+\item The E-\/\+Stop is pressed
+\item The module type received from the previous station changes
+\end{DoxyItemize}
+
+When changing over to a different module type, make sure the new module type has been received from the previous station before pressing {\bfseries{Home}}.
+
+\hypertarget{gui_gui_main_home_tbl}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{GUI Elements}\label{gui_gui_main_home_tbl}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Element}&\cellcolor{\tableheadbgcolor}\textbf{ Purpose }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Element}&\cellcolor{\tableheadbgcolor}\textbf{ Purpose }\\\cline{1-2}
+\endhead
+Home (Temporary Button)&Starts the homing sequence. Shows {\bfseries{Homing}} with a yellow border while the homing sequence is running, and {\bfseries{Home}} with a green border once the station is homed \\\cline{1-2}
+Robot Rdy (Indicator)&The ib\+\_\+\+Ready signal is set to high from the robot \\\cline{1-2}
+Robot Inpos (Indicator)&The robot is in the rest (barcode) position \\\cline{1-2}
+Reject NOK (Indicator)&The reject bin is not present \\\cline{1-2}
+Nest1 Home (Indicator)&The cylinder for nest 1 is in the home position \\\cline{1-2}
+Nest2 Home (Indicator)&The cylinder for nest 2 is in the home position \\\cline{1-2}
+CTS1 NOK (Indicator)&Leak tester 1 previous results not cleared \\\cline{1-2}
+CTS2 NOK (Indicator)&Leak tester 2 previous results not cleared \\\cline{1-2}
+No Cleat (Indicator)&Conveyor cleat is not in position \\\cline{1-2}
+Conv Homed (Indicator)&Conveyor has \mbox{\hyperlink{gui_gui_config}{at least N empty spots}} \\\cline{1-2}
+RFID 1 Match (Indicator)&The nest 1 fixture RFID tag matches the expected value \\\cline{1-2}
+RFID 2 Match (Indicator)&The nest 2 fixture RFID tag matches the expected value \\\cline{1-2}
+\end{longtabu}
+
+
+\mbox{\hyperlink{gui_gui_main_top}{To Top}}\hypertarget{gui_gui_main_autoo}{}\doxysubsection{3. Mode and Cycle Controls}\label{gui_gui_main_autoo}
+\hypertarget{gui_gui_main_auto_tbl}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{GUI Elements}\label{gui_gui_main_auto_tbl}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Element}&\cellcolor{\tableheadbgcolor}\textbf{ Purpose }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Element}&\cellcolor{\tableheadbgcolor}\textbf{ Purpose }\\\cline{1-2}
+\endhead
+Manual (Temporary Button)&Changes the PLC to Manual Mode \\\cline{1-2}
+Auto (Temporary Button)&Changes the PLC to Auto Mode \\\cline{1-2}
+Cycle Start (Temporary Button)&Starts the production sequence. Can only be started when Auto Mode is active \\\cline{1-2}
+Cycle Stop (Temporary Button)&
+\begin{DoxyItemize}
+\item Stops the production sequence 
+\item Held (3s) force stops the production sequence 
+\item Cycle Stop is automatically triggered when a \mbox{\hyperlink{faults}{fault}} occurs during sequence run 
+\item Cycle Stop is unset when Cycle Start is pressed 
+\item The production sequence will attempt to start at step 1000 when resumed 
+\end{DoxyItemize}\\\cline{1-2}
+Cycle Pause (Temporary Button)&
+\begin{DoxyItemize}
+\item Pauses the production sequence 
+\item Cycle Pause is unset when Cycle Start is pressed 
+\item The production sequence will attempt to start at the paused step when resumed 
+\end{DoxyItemize}\\\cline{1-2}
+Warning Active (Banner)&Shown when a \mbox{\hyperlink{faults}{warning}} is active \\\cline{1-2}
+\end{longtabu}
+
+
+\mbox{\hyperlink{gui_gui_main_top}{To Top}}\hypertarget{gui_gui_main_result}{}\doxysubsection{4. Test Results}\label{gui_gui_main_result}
+Displays the last scanned barcode for each nest as well as the \% Volume (VR) and Leak Rate (LR) test results.
+
+\mbox{\hyperlink{gui_gui_main_top}{To Top}}\hypertarget{gui_gui_main_modes}{}\doxysubsection{5. Modes and Bypasses}\label{gui_gui_main_modes}
+\index{Modes and Bypasses@{Modes and Bypasses}}
+
+All buttons found here other than Next Step are toggle buttons. All bypasses should be toggled on prior to pressing Cycle Start.
+
+\hypertarget{gui_gui_main_modes_tbl}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Modes and Bypasses}\label{gui_gui_main_modes_tbl}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Button}&\cellcolor{\tableheadbgcolor}\textbf{ Purpose }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Button}&\cellcolor{\tableheadbgcolor}\textbf{ Purpose }\\\cline{1-2}
+\endhead
+Step Mode/\+Next Step&Puts the production sequence in Cycle Pause and allows for manual sequence stepping \\\cline{1-2}
+Dry Cycle&Production sequence will operate as if parts are present \\\cline{1-2}
+3510 Bypass&Bypasses faults caused by 3 5 10 rules \\\cline{1-2}
+Barcode Bypass&Bypasses barcode scanning in production sequence \\\cline{1-2}
+MES Bypass&Bypasses all MES related checks \\\cline{1-2}
+Nest1/2 Bypass&Bypasses selected nest during production sequence \\\cline{1-2}
+RFID Bypass&Bypasses the RFID fixture check during homing \\\cline{1-2}
+\end{longtabu}
+
+
+\mbox{\hyperlink{gui_gui_main_top}{To Top}}\hypertarget{gui_gui_main_conv}{}\doxysubsection{6. Index Conveyor and Robot Interlock}\label{gui_gui_main_conv}
+\index{Index Conveyor@{Index Conveyor}} \index{Robot Interlock@{Robot Interlock}}
+
+{\bfseries{Index Conveyor}}\+: Indexes the conveyor 1 full position. Only displayed in Auto Mode, for all users. See \mbox{\hyperlink{gui_gui_main_auto_conv}{Index Conveyor (Auto)}}.
+
+{\bfseries{Robot Interlock}}\+: Allows the robot to be run manually. Only displayed when an \mbox{\hyperlink{gui_gui_main_user}{Administrator}} is logged in, in both Manual and Auto Mode.
+
+\mbox{\hyperlink{gui_gui_main_top}{To Top}}\hypertarget{gui_gui_main_auto}{}\doxysection{Main Interface (\+Auto Mode)}\label{gui_gui_main_auto}
+\index{User Interface (Auto Mode)@{User Interface (Auto Mode)}}
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{gui_main_auto-2.png}
+\doxyfigcaption{Main User Interface (Auto Mode)}
+\end{DoxyImage}
+
+
+
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{gui_gui_main_auto_conv}{Index Conveyor (Auto)}} 
+\end{DoxyEnumerate}
+
+The Auto button is shown green while the station is running in Auto Mode. Homing controls are hidden in Auto Mode.\hypertarget{gui_gui_main_auto_conv}{}\doxysubsection{1. Index Conveyor (\+Auto)}\label{gui_gui_main_auto_conv}
+\index{Conveyor Index Button (Auto)@{Conveyor Index Button (Auto)}}
+
+Allows operators to index the conveyor manually while in Auto Mode. Available to all users.\hypertarget{gui_gui_IO}{}\doxysection{IO Pages}\label{gui_gui_IO}
+All IO pages follow a similar layout of LEDs and labels
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{gui_IO.png}
+\doxyfigcaption{IO Indicators}
+\end{DoxyImage}
+\hypertarget{gui_gui_IO_safety}{}\doxysubsection{Safety IO}\label{gui_gui_IO_safety}
+\index{Safety IO@{Safety IO}}
+
+The Safety IO page only displays the status of all safety inputs and outputs.\hypertarget{gui_gui_IO_i}{}\doxysubsection{Regular Inputs}\label{gui_gui_IO_i}
+\index{Regular Inputs (Signal)@{Regular Inputs (Signal)}}
+
+The Regular Input pages display the status of all input signals as well as its global trigger count. These counts are reset when pressing the LED. These counts are only used for debug purposes and are not and should not be used in logic.\hypertarget{gui_gui_IO_o}{}\doxysubsection{Regular Outputs}\label{gui_gui_IO_o}
+\index{Regular Outputs (Signal)@{Regular Outputs (Signal)}}
+
+The Regular Output page displays the status of all output signals. The LEDs act as toggle buttons, but do not override PLC logic. As such, most signals cannot be toggled from this screen.\hypertarget{gui_gui_seqinfo}{}\doxysection{Sequence Info}\label{gui_gui_seqinfo}
+\index{Sequence Info@{Sequence Info}}
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{gui_seqinfo.png}
+\doxyfigcaption{Sequence Info}
+\end{DoxyImage}
+
+
+Reset buttons are only visible when an \mbox{\hyperlink{gui_gui_main_user}{Administrator}} is logged in.
+
+\label{gui_gui_seqinfo_top}%
+\Hypertarget{gui_gui_seqinfo_top}%
+
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{gui_gui_seqinfo_count}{Counters}} 
+\item \mbox{\hyperlink{gui_gui_seqinfo_hist}{History}} 
+\item \mbox{\hyperlink{gui_gui_seqinfo_mem}{History Reset}} 
+\end{DoxyEnumerate}\hypertarget{gui_gui_seqinfo_count}{}\doxysubsection{1. Counters}\label{gui_gui_seqinfo_count}
+\index{Counters@{Counters}}
+
+\hypertarget{gui_gui_seqinfo_count_tbl}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\caption{Counters}\label{gui_gui_seqinfo_count_tbl}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Counter}&\cellcolor{\tableheadbgcolor}\textbf{ Purpose}&\cellcolor{\tableheadbgcolor}\textbf{ Reset }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Counter}&\cellcolor{\tableheadbgcolor}\textbf{ Purpose}&\cellcolor{\tableheadbgcolor}\textbf{ Reset }\\\cline{1-3}
+\endhead
+Row&Number of failed units in a row&Non-\/consecutive fail \\\cline{1-3}
+Hour&Number of failed units per hour&New hour \\\cline{1-3}
+Shift&Number of failed units per shift&Shift change \\\cline{1-3}
+Fault&Number of faults triggered, concurrent faults may only count once&Shift change \\\cline{1-3}
+Infeed&Number of units picked up from load nest&Button \\\cline{1-3}
+Outfeed&Number of units unloaded to conveyor&Button \\\cline{1-3}
+\end{longtabu}
+
+
+\mbox{\hyperlink{gui_gui_seqinfo_top}{To Top}}\hypertarget{gui_gui_seqinfo_hist}{}\doxysubsection{2. History}\label{gui_gui_seqinfo_hist}
+Sequence lists display the step history. Test lists display the test history. Navigation buttons found at the bottom will navigate only the active list. Related lists are not synced in terms of positions and need to be individually aligned via navigation buttons.
+
+All lists are in reverse order, where the latest data populate the top most entry. If an array is not fully populated, the top entries of the list may be empty.
+
+\mbox{\hyperlink{gui_gui_seqinfo_top}{To Top}}\hypertarget{gui_gui_seqinfo_mem}{}\doxysubsection{3. History Reset}\label{gui_gui_seqinfo_mem}
+\index{History Reset@{History Reset}}
+
+Average indicates the average cycle time. The reset buttons will reset all sequence related data.
+
+\mbox{\hyperlink{gui_gui_seqinfo_top}{To Top}}\hypertarget{gui_gui_alarms}{}\doxysection{Alarms}\label{gui_gui_alarms}
+View and reset faults and warnings.\hypertarget{gui_gui_manual}{}\doxysection{Manual Operation}\label{gui_gui_manual}
+\index{Manual Operation@{Manual Operation}}
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{gui_manual.png}
+\doxyfigcaption{Manual Operation}
+\end{DoxyImage}
+
+
+All controls shown here are only available in Manual Mode.
+
+\label{gui_gui_manual_top}%
+\Hypertarget{gui_gui_manual_top}%
+
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{gui_gui_manual_cyl}{Nest Cylinders}} 
+\item \mbox{\hyperlink{gui_gui_manual_barcode}{Barcode Scanner}} 
+\item \mbox{\hyperlink{gui_gui_manual_conv}{Conveyor Indexing}} 
+\item \mbox{\hyperlink{gui_gui_manual_grip}{Robot Gripper}} 
+\item \mbox{\hyperlink{gui_gui_manual_ovrr}{Robot Override}} 
+\item \mbox{\hyperlink{gui_gui_manual_move}{Robot Movement}} 
+\item \mbox{\hyperlink{gui_gui_manual_mode}{Robot Position/\+Coord Mode}} 
+\item \mbox{\hyperlink{gui_gui_manual_cts}{Leak Testers}} 
+\item \mbox{\hyperlink{gui_gui_manual_rfid}{RFID Scanner}} 
+\end{DoxyEnumerate}\hypertarget{gui_gui_manual_cyl}{}\doxysubsection{1. Nest Cylinders}\label{gui_gui_manual_cyl}
+Manual controls for nest cylinder position.
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_barcode}{}\doxysubsection{2. Barcode Scanner}\label{gui_gui_manual_barcode}
+Manual trigger for barcode scanner.
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_conv}{}\doxysubsection{3. Conveyor Indexing}\label{gui_gui_manual_conv}
+Manual indexing of conveyor. Button press will index conveyor 1 full position. Jogging not possible.
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_grip}{}\doxysubsection{4. Robot Gripper}\label{gui_gui_manual_grip}
+Manual toggle of robot gripper. Gripping without a DUT will cause a gripper fault.
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_ovrr}{}\doxysubsection{5. Robot Override}\label{gui_gui_manual_ovrr}
+\index{Robot Override@{Robot Override}}
+
+Override default robot parameters based on entered values. Overrides persist in Auto Mode.
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_move}{}\doxysubsection{6. Robot Movement}\label{gui_gui_manual_move}
+\index{Robot Positions@{Robot Positions}}
+
+Toggle buttons or Target Position sets robot movement target. Press Start to execute movement. Moving to Load Nest requires upstream interlock.
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_mode}{}\doxysubsection{7. Robot Position/\+Coord Mode}\label{gui_gui_manual_mode}
+Toggles robot movement between Position mode and Coord mode. The same button switches between the two modes and is only displayed in Manual Mode.
+\begin{DoxyItemize}
+\item {\bfseries{Position mode\+:}} robot moves to the selected \mbox{\hyperlink{gui_gui_manual_move}{target position}}.
+\item {\bfseries{Coord mode\+:}} robot moves using coordinate input. Robot movement unpredictable and not fully safe. Use with caution.
+\end{DoxyItemize}
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_cts}{}\doxysubsection{8. Leak Testers}\label{gui_gui_manual_cts}
+Manually set leak tester program number and trigger tests.
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_rfid}{}\doxysubsection{9. RFID Scanner}\label{gui_gui_manual_rfid}
+\index{RFID Scanner@{RFID Scanner}}
+
+\label{gui_gui_manual_rfid_top}%
+\Hypertarget{gui_gui_manual_rfid_top}%
+ Manual read and write of the fixture RFID tags. Read Mode is available to all users. Write Mode is only shown when an \mbox{\hyperlink{gui_gui_main_user}{Administrator}} user is logged in.
+
+
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{gui_gui_manual_rfid_head}{Antenna Selection}} 
+\item \mbox{\hyperlink{gui_gui_manual_rfid_cmd}{Read Mode / Write Mode}} 
+\item \mbox{\hyperlink{gui_gui_manual_rfid_ind}{Status Indicators}} 
+\item \mbox{\hyperlink{gui_gui_manual_rfid_data}{Tag Data}} 
+\item \mbox{\hyperlink{gui_gui_manual_rfid_exec}{Execute}} 
+\end{DoxyEnumerate}\hypertarget{gui_gui_manual_rfid_head}{}\doxysubsubsection{9.\+1 Antenna Selection}\label{gui_gui_manual_rfid_head}
+Selects which RFID head the command is sent to.
+\begin{DoxyItemize}
+\item {\bfseries{Antenna-\/1 (IO-\/1)\+:}} Nest 1 RFID head
+\item {\bfseries{Antenna-\/2 (IO-\/3)\+:}} Nest 2 RFID head
+\end{DoxyItemize}
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_rfid_cmd}{}\doxysubsubsection{9.\+2 Read Mode / Write Mode}\label{gui_gui_manual_rfid_cmd}
+Selects the command to run on Execute.
+\begin{DoxyItemize}
+\item {\bfseries{Read Mode\+:}} Reads the data stored in the tag
+\item {\bfseries{Write Mode\+:}} Writes the entered data to the tag. Only visible when an Administrator is logged in
+\end{DoxyItemize}
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_rfid_ind}{}\doxysubsubsection{9.\+3 Status Indicators}\label{gui_gui_manual_rfid_ind}
+
+\begin{DoxyItemize}
+\item {\bfseries{Read Success\+:}} Turns green for 3 seconds after a successful read
+\item {\bfseries{Write Success\+:}} Turns green for 3 seconds after a successful write
+\end{DoxyItemize}
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_rfid_data}{}\doxysubsubsection{9.\+4 Tag Data}\label{gui_gui_manual_rfid_data}
+In Read mode, displays the 24 character value read from the tag after Execute is pressed. In Write mode, pressing the box opens a keyboard to enter the 24 character value to write.
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_manual_rfid_exec}{}\doxysubsubsection{9.\+5 Execute}\label{gui_gui_manual_rfid_exec}
+Runs the selected Read Mode / Write Mode command on the selected antenna.
+
+\mbox{\hyperlink{gui_gui_manual_top}{To Top}}\hypertarget{gui_gui_config}{}\doxysection{Station Config}\label{gui_gui_config}
+\index{Station Config@{Station Config}} \index{User Authentication@{User Authentication}}
+
+\label{gui_gui_config_top}%
+\Hypertarget{gui_gui_config_top}%
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{gui_config-2.png}
+\doxyfigcaption{Station Config}
+\end{DoxyImage}
+
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{gui_config-2-after-login.png}
+\doxyfigcaption{Station Config (Administrator)}
+\end{DoxyImage}
+
+
+
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{gui_gui_main_user}{User Authentication}} 
+\item \mbox{\hyperlink{gui_gui_config_param}{Station Parameters}} 
+\item \mbox{\hyperlink{gui_gui_config_cap}{Auto Mode CTS Test}} 
+\end{DoxyEnumerate}
+
+System-\/wide \mbox{\hyperlink{gui_gui_main_modes}{modes and bypasses}} are also available at the bottom of this page.\hypertarget{gui_gui_main_user}{}\doxysubsection{1. User Authentication}\label{gui_gui_main_user}
+Used for logging into higher level access users. {\bfseries{Current User}} shows the logged in user. Users in the {\bfseries{Administrator}} group will see additional controls on various pages. Authenticated users will be logged out after 10 minutes of idle time.
+
+\hypertarget{gui_gui_main_user_tbl}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\caption{Users}\label{gui_gui_main_user_tbl}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ User}&\cellcolor{\tableheadbgcolor}\textbf{ Password}&\cellcolor{\tableheadbgcolor}\textbf{ Group }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ User}&\cellcolor{\tableheadbgcolor}\textbf{ Password}&\cellcolor{\tableheadbgcolor}\textbf{ Group }\\\cline{1-3}
+\endhead
+MAGNA&MAGNA&Administrators \\\cline{1-3}
+Admin&Admin&Administrators \\\cline{1-3}
+DEFAULT&&\\\cline{1-3}
+\end{longtabu}
+
+
+\mbox{\hyperlink{gui_gui_config_top}{To Top}}\hypertarget{gui_gui_config_param}{}\doxysubsection{2. Station Parameters}\label{gui_gui_config_param}
+Only editable when an Administrator is logged in.
+
+{\bfseries{Cylinder Down Delay}}\+: Time in ms delay between triggering the cylinder down sensor and starting the leak tester tests. {\bfseries{Conveyor Home Count}}\+: Number of empty pockets required when homing conveyor. {\bfseries{Fail Bin Limit}}\+: Number of DUTs registered to the fail bin before it is prompted for emptying.
+
+\mbox{\hyperlink{gui_gui_config_top}{To Top}}\hypertarget{gui_gui_config_cap}{}\doxysubsection{3. Auto Mode CTS Test}\label{gui_gui_config_cap}
+Only visible when an Administrator is logged in.
+
+{\bfseries{CTS}}\+: Program number loaded on the leak testers. {\bfseries{DUT Type}}\+: Type of DUT being tested, {\bfseries{Tall}} or {\bfseries{Short}}.
+
+The Cap buttons (Cap\+Shuffle, Cap\+Robot, Cap\+Fail, Cap\+Actuators, Cap\+CTS, Cap\+Cylinders, Cap\+Pass) select capability test modes.
+
+\mbox{\hyperlink{gui_gui_config_top}{To Top}} 

@@ -1,0 +1,44 @@
+\index{Faults@{Faults}} \index{Warnings@{Warnings}}
+
+\hypertarget{faults_faults_fault_tbl}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\caption{Faults}\label{faults_faults_fault_tbl}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Category}&\cellcolor{\tableheadbgcolor}\textbf{ Cause}&\cellcolor{\tableheadbgcolor}\textbf{ Recovery }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Category}&\cellcolor{\tableheadbgcolor}\textbf{ Cause}&\cellcolor{\tableheadbgcolor}\textbf{ Recovery }\\\cline{1-3}
+\endhead
+Utility&Lack of power/air/safety&Address according to message \\\cline{1-3}
+EIP connection&Instrument off/disconnected or communication error&Check instrument Ethernet\+IP settings \\\cline{1-3}
+EStop fault&Safety program block fault&Manually trigger reset in program \\\cline{1-3}
+Instrument operation&Various causes&Check instrument is functioning correctly and all interlocks are met \\\cline{1-3}
+RFID mismatch&
+\begin{DoxyItemize}
+\item Cylinder 1 RFID not matching expected value. 
+\item Cylinder 2 RFID not matching expected value. 
+\end{DoxyItemize}&Install the correct fixture in the affected nest, or write the correct value to the fixture tag through the \mbox{\hyperlink{gui_gui_manual_rfid}{RFID Scanner}} controls. Reset the fault and re-\/run homing \\\cline{1-3}
+Sequence&Unexpected behavior/state&Check step history and resolve based on expected behavior \\\cline{1-3}
+\end{longtabu}
+
+
+\hypertarget{faults_faults_warn_tbl}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\caption{Warnings}\label{faults_faults_warn_tbl}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Category}&\cellcolor{\tableheadbgcolor}\textbf{ Cause}&\cellcolor{\tableheadbgcolor}\textbf{ Recovery }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Category}&\cellcolor{\tableheadbgcolor}\textbf{ Cause}&\cellcolor{\tableheadbgcolor}\textbf{ Recovery }\\\cline{1-3}
+\endhead
+Mode active&Special mode or override active&Turn off mode and reset faults \\\cline{1-3}
+Sequence timeout&Sequence does not progress to next step within certain time&Check step history and resolve accordingly \\\cline{1-3}
+Instrument operation&Various causes&Check instrument is functioning correctly and all interlocks are met \\\cline{1-3}
+Fail bin full&Fail bin counter reached&Remove and empty fail bin \\\cline{1-3}
+\end{longtabu}

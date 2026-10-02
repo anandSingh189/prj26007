@@ -1,0 +1,44 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Purpose}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Operational Modes}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}User Interface}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Main Interface}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}1. Navigation Buttons}{6}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}2. Station Homing}{6}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}3. Mode and Cycle Controls}{7}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}4. Test Results}{8}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}5. Modes and Bypasses}{8}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}6. Index Conveyor and Robot Interlock}{8}{subsection.3.1.6}%
+\contentsline {section}{\numberline {3.2}Main Interface (\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Auto Mode)}{9}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}1. Index Conveyor (\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Auto)}{9}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}IO Pages}{9}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Safety IO}{10}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Regular Inputs}{10}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Regular Outputs}{10}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Sequence Info}{11}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}1. Counters}{11}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}2. History}{12}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}3. History Reset}{12}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Alarms}{12}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Manual Operation}{12}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}1. Nest Cylinders}{13}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}2. Barcode Scanner}{13}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}3. Conveyor Indexing}{13}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}4. Robot Gripper}{13}{subsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.6.5}5. Robot Override}{13}{subsection.3.6.5}%
+\contentsline {subsection}{\numberline {3.6.6}6. Robot Movement}{14}{subsection.3.6.6}%
+\contentsline {subsection}{\numberline {3.6.7}7. Robot Position/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Coord Mode}{14}{subsection.3.6.7}%
+\contentsline {subsection}{\numberline {3.6.8}8. Leak Testers}{14}{subsection.3.6.8}%
+\contentsline {subsection}{\numberline {3.6.9}9. RFID Scanner}{14}{subsection.3.6.9}%
+\contentsline {subsubsection}{\numberline {3.6.9.1}9.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}1 Antenna Selection}{14}{subsubsection.3.6.9.1}%
+\contentsline {subsubsection}{\numberline {3.6.9.2}9.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}2 Read Mode / Write Mode}{15}{subsubsection.3.6.9.2}%
+\contentsline {subsubsection}{\numberline {3.6.9.3}9.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}3 Status Indicators}{15}{subsubsection.3.6.9.3}%
+\contentsline {subsubsection}{\numberline {3.6.9.4}9.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}4 Tag Data}{15}{subsubsection.3.6.9.4}%
+\contentsline {subsubsection}{\numberline {3.6.9.5}9.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}5 Execute}{15}{subsubsection.3.6.9.5}%
+\contentsline {section}{\numberline {3.7}Station Config}{16}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}1. User Authentication}{17}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}2. Station Parameters}{18}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}3. Auto Mode CTS Test}{18}{subsection.3.7.3}%
+\contentsline {chapter}{\numberline {4}Faults and Warnings}{19}{chapter.4}%
+\contentsline {chapter}{Index}{21}{section*.8}%
